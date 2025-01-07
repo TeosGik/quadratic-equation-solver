@@ -1,0 +1,18 @@
+import math
+
+def solution(a, b, c):
+    discriminant = b**2 - 4*a*c
+    if discriminant < 0:
+        return None
+    elif discriminant == 0:
+        x = -b / (2*a)
+        return (round(x, 2),)
+    else:
+        x1 = (-b - math.sqrt(discriminant)) / (2*a)
+        x2 = (-b + math.sqrt(discriminant)) / (2*a)
+        return tuple(sorted([round(x1, 2), round(x2, 2)]))
+
+if __name__ == "__main__":
+    print(solution(a=1, b=6, c=5))  # Output: (-5, -1)
+    print(solution(a=1, b=4, c=4))  # Output: (-2,)
+    print(solution(a=1, b=6, c=45))  # Output: None
